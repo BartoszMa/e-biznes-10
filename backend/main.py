@@ -66,6 +66,7 @@ class RegisterRequest(BaseModel):
     username: str
     password: str
 
+
 @app.post("/register")
 def register(data: RegisterRequest):
     if data.username in users_db:

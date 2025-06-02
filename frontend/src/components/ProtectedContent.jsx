@@ -12,6 +12,7 @@ function ProtectedContent() {
             return;
         }
 
+
         fetch("https://back-app-d0epgqe7gmcwhkhs.northeurope-01.azurewebsites.net/protected", {
             headers: {
                 Authorization: `Bearer ${token}`,

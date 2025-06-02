@@ -12,6 +12,12 @@ jobs:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USER }}
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
       DOCKERHUB_REPO: bartoszmajkowski
+      SMTP_SERVER: smtp.mailersend.net
+      SMTP_PORT: 587
+      SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      EMAIL_TO: autobidscloud@proton.me
+      EMAIL_FROM: MS_mb1mtX@test-q3enl6k875m42vwr.mlsender.net
 
     steps:
       - uses: actions/checkout@v3
@@ -28,3 +34,16 @@ jobs:
         run: |
           docker build -t $DOCKERHUB_REPO/ebiznesback:latest ./backend
           docker push $DOCKERHUB_REPO/ebiznesback:latest
+
+      - name: Send notification email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ env.SMTP_SERVER }}
+          server_port: ${{ env.SMTP_PORT }}
+          username: ${{ env.SMTP_USERNAME }}
+          password: ${{ env.SMTP_PASSWORD }}
+          subject: "Build Notification: Application built successfully"
+          to: ${{ env.EMAIL_TO }}
+          from: ${{ env.EMAIL_FROM }}
+          body: |
+            The Docker images for frontend and backend have been built and pushed successfully.
