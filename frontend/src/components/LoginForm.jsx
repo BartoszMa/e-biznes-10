@@ -11,7 +11,7 @@ function LoginForm() {
         formData.append("username", username);
         formData.append("password", password);
 
-        const response = await fetch("http://localhost:8000/token", {
+        const response = await fetch("https://back-app-d0epgqe7gmcwhkhs.northeurope-01.azurewebsites.net/token", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: formData,

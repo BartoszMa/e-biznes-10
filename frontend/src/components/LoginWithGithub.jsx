@@ -1,6 +1,6 @@
 function LoginWithGithub() {
     const handleGithubLogin = () => {
-        window.location.href = "http://localhost:8000/auth/github";
+        window.location.href = "https://back-app-d0epgqe7gmcwhkhs.northeurope-01.azurewebsites.net/auth/github";
     };
 
     return (

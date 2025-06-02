@@ -1,6 +1,6 @@
 function LoginWithGoogle() {
     const handleGoogleLogin = () => {
-        window.location.href = "http://localhost:8000/auth/google";
+        window.location.href = "https://back-app-d0epgqe7gmcwhkhs.northeurope-01.azurewebsites.net/auth/google";
     };
 
     return (

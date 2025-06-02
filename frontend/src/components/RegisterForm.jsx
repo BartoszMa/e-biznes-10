@@ -8,7 +8,7 @@ function RegisterForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("http://localhost:8000/register", {
+        const response = await fetch("https://back-app-d0epgqe7gmcwhkhs.northeurope-01.azurewebsites.net/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password }),
